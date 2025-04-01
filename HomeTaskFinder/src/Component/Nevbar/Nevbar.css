@@ -1,0 +1,73 @@
+.login-btn{
+    height: 50px;
+    width: 180px;
+    margin: 5px;
+
+}
+.After_Login{
+    display: flex;
+    gap: 20px;
+    position:absolute;
+    margin-left: 1100px;
+
+}
+.booking:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.Profile:hover{
+    transform: scale(1.1);
+    cursor:pointer;
+}
+.btn-1{
+    margin-top: -5px;
+    margin-left: 15px;
+    height: 60px;
+    width: 150px;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgb(83, 120, 241);
+    transition: background-color 0.3 ease;
+}
+.btn-1:hover{
+    transform: scale(1.05);
+    background-color: #45a049;
+}
+.btn-1 span{
+    font-size: 35px;
+    margin-left: 10px;
+}
+.arrow-btn{
+    margin-left: 4px;
+    margin-bottom: -8px;
+}
+.hiddenbtn {
+    display: none;
+    flex-direction: column;
+    margin-top: 5px;
+}
+
+.hiddenbtn button {
+    font-size: 17px;
+    font-weight: 500;
+    background-color: white;
+    height: 50px;
+    margin: 5px 0;
+    padding: 8px 12px;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+  }
+  
+  .hiddenbtn button:hover {
+    transform: scale(1.1);
+    background-color: #45a049;
+  }
+  
+  /* Show the buttons when state is true */
+  .loginBtn .hiddenbtn {
+    display: flex;
+  }
+  

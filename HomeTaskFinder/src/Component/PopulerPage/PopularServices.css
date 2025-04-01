@@ -1,0 +1,93 @@
+.populer_section{
+    margin-top: 100px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+
+  }
+  .plumbing_service {
+      height: 330px;
+      width: 470px;
+      border-radius: 5px;
+      background-color: white;
+      box-shadow: 1px 2px 4px 6px rgb(186, 186, 186);
+  }
+  
+  .plumbing_service img {
+      height: 250px;
+      width: 470px;
+      padding-left: 30px;
+      padding-right: 30px;
+      padding-top: 30px;
+  }
+  
+  .plumbing_service h1 {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-weight: 400;
+      font-size: 28px;
+      padding-bottom: 7px;
+  }
+  
+  .text-section {
+      height: 30px;
+      width: 330px;
+      padding-left: 30px;
+  
+  
+  }
+  
+  .plumbing_service p {
+      font-size: 15px;
+      font-weight: 300;
+  }
+  
+  .button_key{
+      border-radius: 7px;
+      margin-top: 15px;
+      margin-right: 30px;
+  }
+  .button_key button{
+      margin-top: -5px;
+      background-color: #007BFF;
+      font-weight: bold;
+      border-radius: 7px;
+      font-size: 20px;
+      padding: 5px;
+      height: 50px;
+      width: 130px;
+      padding-left: 2px 30px;
+      color: white;
+      transition: background-color 0.3s ease;
+      
+  }
+  .button_key button:hover{
+      padding: 11px;
+      cursor: pointer;
+      transform: scale(1.1);
+  }
+  .populer_service {
+      padding: 10px;
+  }
+  
+  .button-text {
+      display: flex;
+      flex-direction: row;
+  }
+  
+  .populer_service {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+  }
+  
+  .populer_section {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+  }
+  .titlename{
+    font-size: 30px;
+    margin: 20px;
+  }

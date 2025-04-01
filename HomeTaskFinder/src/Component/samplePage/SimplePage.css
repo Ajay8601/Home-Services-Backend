@@ -1,0 +1,66 @@
+.salon_woman h1{
+    font-size: 40px;
+    margin: 20px;
+    margin-top: 160px;
+  }
+  .salon-woman{
+    display: flex;
+    flex-direction:row ;
+    margin: 10px;
+    gap: 15px;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+  }
+  .salon-image{
+    height: 201px;
+    margin-top: 40px;
+    border-radius: 10px;
+    margin-top: 51px;
+    transition: transform 0.3s ease;
+  }
+  .mbs-1{
+    height: 320px;
+    width: 269px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    flex: 0 0 auto;
+    box-shadow: 1px 2px 4px 6px rgb(186, 186, 186);
+    transition: transform 0.3s ease;
+  }
+
+  .ac_repaire{
+    display: absolute;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+    gap: 20px; /* Prevent wrapping of items */
+    width: 100%;
+    margin-right: 100px;
+
+  }
+  .circle-button-1{
+    position: absolute;
+
+    right: 1px; /* Adjust to match layout */
+    transform: translateY(-50%);
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 180px;
+  }
+  .circle-button-1:hover{
+    background-color: #f0f0f0;
+  }
+  .circle-button-1 img{
+    height: 50px;
+    transform: rotate(180deg);
+  }
