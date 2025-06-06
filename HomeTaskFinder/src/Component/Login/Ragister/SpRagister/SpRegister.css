@@ -1,0 +1,107 @@
+.SpRegister2{
+  position: absolute;
+  position: fixed;
+  height: 900px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;    /* Centers vertically */
+  height: 100vh;  
+  background-image: linear-gradient(90deg, #aef9e0 0%, #b8e0ed 50%, #9accf3 100%);
+}
+.SpRegister {
+
+    background-color: #f9f9f9;
+    padding: 40px;
+    border-radius: 12px;
+    width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 120px;
+    background-color: none;
+    margin-top: -1px;
+  }
+
+  .close_button4{
+    margin-top: -130px;
+    margin-left: 460px;
+    font-size: 24px;
+    position: absolute;
+    display: flex;
+    width: 100px;
+    color: #3b3d3f;
+    transition: backgroun-color 0.3 ease;
+  }
+  .close_button4:hover{
+    cursor: pointer;
+    color: #007BFF;
+    transform: scale(1.1);
+  
+  }
+  h2 {
+    color: #007bff;
+  }
+  
+  label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .close-button {
+    background-color: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+  }
+  
+  .close-button:hover {
+    background-color: #e43f51;
+  }
+  .container1{
+    display: flex;
+    margin-top: 50px;
+    gap: 10px;
+  }
+  .container1 label{
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    margin-top: -28px;
+    padding: 5px;
+  }
+  .text-2{
+    margin-left: 265px;
+  }

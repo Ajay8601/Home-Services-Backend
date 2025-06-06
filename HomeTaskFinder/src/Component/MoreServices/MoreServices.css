@@ -1,0 +1,8 @@
+
+  .most-booked-2{
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap; /* Prevent wrapping of items */
+    width: 100%;
+  }

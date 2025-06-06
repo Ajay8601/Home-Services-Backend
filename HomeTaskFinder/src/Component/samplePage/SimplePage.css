@@ -1,0 +1,95 @@
+.salon_woman h1{
+    font-size: 40px;
+    margin: 20px;
+    margin-top: 160px;
+  }
+  .salon-woman{
+    display: flex;
+    flex-direction:row ;
+    margin: 10px;
+    gap: 15px;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+  }
+  .salon-image{
+    height: 201px;
+    margin-top: 40px;
+    border-radius: 10px;
+    margin-top: 51px;
+    transition: transform 0.3s ease;
+  }
+  .mbs-1{
+    height: 320px;
+    width: 269px;
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    margin-bottom: 20px;
+    flex: 0 0 auto;
+    box-shadow: 1px 2px 4px 6px rgb(186, 186, 186);
+    transition: transform 0.3s ease;
+  }
+
+  .ac_repaire{
+    display: absolute;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden; /* Hide overflowing content */
+    white-space: nowrap;
+    gap: 20px; /* Prevent wrapping of items */
+    width: 100%;
+    margin-right: 100px;
+
+  }
+ 
+  @media (max-width: 480px){
+
+    .salon_woman h1{
+      font-size: 30px;
+      margin: 20px;
+      margin-top: 160px;
+    }
+    .salon-woman{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 10px;
+      gap: 1px;
+      overflow: hidden; /* Hide overflowing content */
+      white-space: nowrap;
+    }
+    .mbs-1{
+      height: 220px;
+      width: 170px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 10px;
+      margin-bottom: 20px;
+      flex: 0 0 auto;
+      box-shadow: 1px 2px 4px 6px rgb(186, 186, 186);
+      transition: transform 0.3s ease;
+
+    }
+    .mbs-1 img{
+      height: 125px;
+      margin-top: 37px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+
+    }
+    .mbs-1 h5{
+      font-size: 15px;
+    }
+  
+    .ac_repaire{
+      display: absolute;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden; /* Hide overflowing content */
+      white-space: nowrap;
+      gap: 20px; /* Prevent wrapping of items */
+      width: 100%;
+      margin-right: 100px;
+  
+    }
+   
+  }
