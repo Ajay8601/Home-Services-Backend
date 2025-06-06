@@ -17,7 +17,7 @@ app.use(cors({
 }));
 app.use(express.json());
 mongoose.connect(`mongodb+srv://Ajay-11:${process.env.MONGODB_PASSWORD}@cluster0.251xqps.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
-  .then(() => console.log('MongoDB connected'))
+  .then(() => console.log('✅ MongoDB connected'))
   .catch(err => console.error('Connection error:', err));
 
 
