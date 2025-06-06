@@ -16,14 +16,10 @@ app.use(cors({
   credentials: true,
 }));
 app.use(express.json());
+mongoose.connect(`mongodb+srv://Ajay-11:${process.env.MONGODB_PASSWORD}@cluster0.251xqps.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`)
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.error('Connection error:', err));
 
-// ✅ MongoDB Connection Fix
-mongoose.connect('mongodb://127.0.0.1:27017/Data', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('Connection error:', err));
 
 // ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
