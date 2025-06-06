@@ -5,7 +5,8 @@ const Footer = () => {
   return (
     <footer>
       <div className="logo_container">
-        <img src="public/Image/logo1.png" alt="logo" height="130px" />
+        <img src="public/Image/logo1.png" alt="logo" height="130px"
+        className="footer-logo" />
       </div>
       <div className="Main_container">
         <h2>Main Link</h2>
@@ -35,15 +36,17 @@ const Footer = () => {
         <h3>Follow Us</h3>
         <div className="follow-container">
           <a href="https://www.instagram.com/">
-            <img src="Image/footer/instagram_3955027.png" height="25px" width="25px" alt="Instagram" />
+            <img src="Image/footer/instagram_3955027.png" height="15px" width="15px" alt="Instagram" />
           </a>
           <a href="https://www.facebook.com/">
-            <img src="Image/footer/facebook_145802.png" height="25px" width="25px" alt="Facebook" />
+            <img src="Image/footer/facebook_145802.png" height="15px" width="15px" alt="Facebook" />
           </a>
           <a href="https://www.linkedin.com/in/ajay-vishwakarma-688506306?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">
-            <img src="Image/footer/linkedin_2504923.png" height="25px" width="25px" alt="LinkedIn" />
+            <img src="Image/footer/linkedin_2504923.png" height="15px" width="15px" alt="LinkedIn" />
           </a>
         </div>
+
+        
       </div>
     </footer>
   );

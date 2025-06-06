@@ -52,6 +52,9 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
+  .modal-body:hover{
+    cursor: pointer;
+  }
   
   .service-card {
     text-align: center;

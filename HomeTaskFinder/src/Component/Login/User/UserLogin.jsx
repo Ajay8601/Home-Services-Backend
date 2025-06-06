@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./UserLogin.css";
-import UserRagister from '../Ragister/UserRagister/UserRagister';
+import UserRegister from "../Ragister/UserRagister/UserRagister";
 
-export default function UserLogin({ close }) {
+export default function UserLogin({ close, onLoginSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -14,13 +14,13 @@ export default function UserLogin({ close }) {
     e.preventDefault();
     setError("");
 
-    if (!username || !password) {
-      setError("Please fill in all fields");
+    if (!username.trim() || !password.trim()) {
+      setError("Please fill in all fields.");
       return;
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/login", {
+      const response = await fetch("http://localhost:5000/api/auth/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
@@ -28,15 +28,29 @@ export default function UserLogin({ close }) {
 
       const data = await response.json();
 
-      if (response.ok) {
-        alert("Login successful!");
-        localStorage.setItem("token", data.token); 
-        navigate("/"); // Redirect to home page
-      } else {
-        setError(data.message || "Login failed. Please try again.");
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed. Please try again.");
+      }
+
+      alert("Login successful!");
+
+      if (data.token) {
+        localStorage.setItem("token", data.token);
+
+        if (typeof onLoginSuccess === "function") {
+          onLoginSuccess();
+        } else {
+          console.error("onLoginSuccess is not a function");
+        }
+
+        if (typeof close === "function") {
+          close(); // ✅ Close the login modal before navigating
+        }
+
+        navigate("/"); // ✅ Ensure navigation happens
       }
     } catch (error) {
-      setError("An error occurred. Please check your connection.");
+      setError(error.message || "An error occurred. Please check your connection.");
     }
   };
 
@@ -72,7 +86,7 @@ export default function UserLogin({ close }) {
             <button className="btn-11" type="submit">Login</button>
             <div className="footers">
               <p>
-                Don't have an account? {" "}
+                Don't have an account?{" "}
                 <span
                   onClick={() => setShowUserRegister(true)}
                   className="register-link"
@@ -85,7 +99,7 @@ export default function UserLogin({ close }) {
           </form>
         </div>
       </div>
-      {showUserRegister && <UserRagister close={() => setShowUserRegister(false)} />}
+      {showUserRegister && <UserRegister close={() => setShowUserRegister(false)} />}
     </>
   );
 }

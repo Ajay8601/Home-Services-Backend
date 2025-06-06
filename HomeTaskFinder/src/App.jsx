@@ -16,8 +16,11 @@ import UserRagister from './Component/Login/Ragister/UserRagister/UserRagister';
 import SpRegister from './Component/Login/Ragister/SpRagister/SpRegister';
 import SpLogin from './Component/Login/ServicsProvider/SpLogin';
 
+
 function App() {
   return (
+    <>
+    {/* <CleaningEmployee/> */}
     <Router>
       <Nevbar />
       <Routes>
@@ -25,13 +28,14 @@ function App() {
         <Route path='/services' element={<PopularServices />} />
         <Route path='/pricing' element={<MostBookedServices />} />
         <Route path='/contact' element={<ContactForm />} />
-        <Route path='/user-login' element={<UserLogin />} />
-        <Route path='/sp-login' element={<SpLogin/>} />
-        <Route path='/user-register' element={<UserRagister />} />
-        <Route path='/sp-register' element={<SpRegister />} />
+        <Route path='/userLogin' element={<UserLogin />} />
+        <Route path='/spLogin' element={<SpLogin/>} />
+        <Route path='/userRegister' element={<UserRagister />} />
+        <Route path='/spRegister' element={<SpRegister />} />
       </Routes>
       <Footer />
     </Router>
+    </>
   );
 }
 

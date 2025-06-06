@@ -1,4 +1,3 @@
-// server.js (Backend)
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
@@ -7,7 +6,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 const app = express();
-const PORT = 5000;
 
 // Import Routes
 const authRoutes = require("./routes/authRoutes");
@@ -19,24 +17,21 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// MongoDB Connection
-mongoose.connect(
-  `mongodb+srv://Ajay-11:${process.env.MONGODB_PASSWORD}@cluster0.251xqps.mongodb.net/users?retryWrites=true&w=majority`
-)
-  .then(() => {
-    console.log("✅ MongoDB connected");
-  })
-  .catch((err) => {
-    console.error("❗ Connection error in MongoDB:", err);
-  });
+// ✅ MongoDB Connection Fix
+mongoose.connect('mongodb://127.0.0.1:27017/Data', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('Connection error:', err));
 
-// Authentication Routes
+// ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
 
-// Serve Static Images
-app.use("/images", express.static(path.join(__dirname, "Public", "Images")));
+// ✅ Serve Static Images
+app.use("/images", express.static(path.join(__dirname, "public/images"))); // Ensure 'public/images' exists
 
-// Services Data
+// ✅ Services Data
 const services = [
   { img: "/images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
   { img: "/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
@@ -49,7 +44,7 @@ const services = [
   { img: "/images/PopulerServices/gardering.jpg", alt: "Gardening service", title: "Gardening", description: "Professional gardening and landscaping services." }
 ];
 
-// Most Booked Services Data
+// ✅ Most Booked Services Data
 const mostBookedServices = [
   { img: "/images/most-booked images/instence-bathroom-cleaner.webp", title: "Intense Bathroom Cleaning", rating: "4.5 (1.1M)", price: "₹499" },
   { img: "/images/most-booked images/bathroom.png", title: "Classic Bathroom Cleaning", rating: "4.8 (1.4M)", price: "₹399" },
@@ -61,9 +56,10 @@ const mostBookedServices = [
   { img: "/images/most-booked images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
 ];
 
-// API Routes
+// ✅ API Routes
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
+app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
 
-// Start Server
-app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
+// ✅ Start Server
+app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));

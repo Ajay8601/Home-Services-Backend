@@ -1,32 +1,8 @@
 
-
   .most-booked-2{
     display: flex;
     flex-direction: row;
     overflow: hidden; /* Hide overflowing content */
     white-space: nowrap; /* Prevent wrapping of items */
     width: 100%;
-  }
-  .circle-button-2{
-    position: absolute;
-
-    right: 1px; /* Adjust to match layout */
-    transform: translateY(-50%);
-    width: 70px;
-    height: 70px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    margin-top: 160px;
-  }
-  .circle-button-2 img{
-    height: 50px;
-    transform: rotate(180deg);
-  }
-  .circle-button-2:hover{
-    background-color: #f0f0f0;
   }

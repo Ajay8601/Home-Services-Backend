@@ -1,28 +1,58 @@
-// SpLogin.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import './SpLogin.css';
-import SpRegister from '../Ragister/SpRagister/SpRegister';
+import "./SpLogin.css";
+import SpRegister from "../Ragister/SpRagister/SpRegister";
 
-export default function SpLogin({ close }) {
+export default function SpLogin({ close, onLoginSuccess }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showSpRegister, setShowSpRegister] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // Handle Login Submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
-    if (!username || !password) {
+    if (!username.trim() || !password.trim()) {
       setError("Please fill in all fields");
       return;
     }
 
-    console.log("Service Provider Login:", { username, password });
-    alert("Login successful!");
-    navigate("/");
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/serviceprovider/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed, please try again.");
+      }
+
+      // Store token in localStorage (for authentication)
+      localStorage.setItem("sp_token", data.token);
+
+      alert("Login successful!");
+
+      if (typeof onLoginSuccess === "function") {
+        onLoginSuccess();
+      } else {
+        console.error("onLoginSuccess is not a function");
+      }
+
+      if (typeof close === "function") {
+        close(); // ✅ Close the modal before navigating
+      }
+
+      navigate("/"); // ✅ Redirect to homepage or dashboard
+    } catch (error) {
+      setError(error.message || "An error occurred. Please try again.");
+      console.error("Login Error:", error);
+    }
   };
 
   return (
@@ -77,7 +107,3 @@ export default function SpLogin({ close }) {
     </div>
   );
 }
-
-// CSS Tip for Close Button
-// Ensure this in your CSS to avoid overlap
-// .close_button1 { position: absolute; top: 10px; right: 10px; cursor: pointer; }

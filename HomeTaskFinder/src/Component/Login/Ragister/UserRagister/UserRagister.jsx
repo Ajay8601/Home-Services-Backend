@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./UserRagister.css";
+import { useNavigate } from "react-router-dom";
 
 export default function UserLogin({ close }) {
   const [fullName, setFullName] = useState("");
@@ -9,34 +10,48 @@ export default function UserLogin({ close }) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate(); // Initialize navigation
+
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-    setSuccess("");
-
+  
+    // Check for empty fields before sending request
     if (!fullName || !email || !phone || !username || !password) {
       setError("Please fill in all fields");
       return;
     }
-
+  
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch("http://localhost:5000/api/auth/user/register", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fullName, email, phone, username, password }),
+        body: JSON.stringify({
+          fullName,
+          email,
+          phone,
+          username,
+          password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-
+  
       const data = await response.json();
+      console.log(data);
 
-      if (response.ok) {
-        setSuccess("Registration complete! Please log in.");
-        
-      } else {
-        setError(data.message || "Registration failed. Please try again.");
+      if (!response.ok) {
+        throw new Error("Failed to send data");
       }
-    } catch (error) {
-      setError("Network error. Please check your connection.");
+  
+      setSuccess("Registration successful! Redirecting to login...");
+      setTimeout(() => navigate("/userLogin"), 2000);
+
+
+    } catch (err) {
+      setError("Error connecting to server. Please try again.");
     }
   };
 
