@@ -12,7 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://home-services-frontend-9152.vercel.app/",
   credentials: true,
 }));
 app.use(express.json());
