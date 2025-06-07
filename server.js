@@ -12,7 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 
 // Middleware
 app.use(cors({
-  origin: "https://home-services-frontend-theta.vercel.app/",
+  origin: "https://home-services-frontend-fqon.vercel.app/",
   credentials: true,
 }));
 app.use(express.json());
