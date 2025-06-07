@@ -12,7 +12,7 @@ const authRoutes = require("./routes/authRoutes");
 
 // Middleware
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: "https://home-services-backend-9zi8.vercel.app/",
   credentials: true,
 }));
 app.use(express.json());
@@ -60,6 +60,9 @@ const mostBookedServices = [
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
 app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
+app.get("/", (req, res) => {
+  console.log("running on api");
+})
 
 // ✅ Start Server
 app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));
