@@ -59,7 +59,7 @@ const mostBookedServices = [
 
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
-app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
+app.get("/serviceprovider/list", (req,res) => res.json(authRoutes));
 app.get("/", (req, res) => {
   res.send("API is running 🚀");
 });
