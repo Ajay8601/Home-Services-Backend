@@ -4,7 +4,6 @@ const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
-const connectDB = require("./db");
 
 const app = express();
 
@@ -18,7 +17,13 @@ app.use(cors({
 }));
 app.use(express.json());
 
-connectDB();
+// ✅ MongoDB Connection Fix
+mongoose.connect('mongodb://127.0.0.1:27017/Data', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error('Connection error:', err));
 
 // ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
@@ -51,12 +56,10 @@ const mostBookedServices = [
   { img: "/images/most-booked images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
 ];
 
+// ✅ API Routes
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
-app.get("/serviceprovider/list", (req,res) => res.json(authRoutes));
-app.get("/", (req, res) => {
-  res.send("API is running 🚀");
-});
+app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
 
-
+// ✅ Start Server
 app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));
