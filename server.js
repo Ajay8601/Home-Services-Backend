@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
+const connectDB = require("./db");
 
 const app = express();
 
@@ -17,14 +18,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-// ✅ MongoDB Connection Fix
-mongoose.connect('mongodb://127.0.0.1:27017/Data', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('Connection error:', err));
-
+connectDB();
 
 // ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
