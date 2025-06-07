@@ -28,7 +28,7 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 // ✅ Sample Static Data
 const services = [
-  { img: "/images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
   { img: "/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
   { img: "/images/PopulerServices/cleaning-service.jpeg", alt: "Cleaning service", title: "Cleaning", description: "Professional cleaning services for your home." },
   { img: "/images/PopulerServices/Appliance Repair Services.jpg", alt: "Appliance repair service", title: "Appliance Repair", description: "Efficient appliance repair services." },
