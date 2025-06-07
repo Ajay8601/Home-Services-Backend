@@ -12,19 +12,18 @@ const authRoutes = require("./routes/authRoutes");
 
 // Middleware
 app.use(cors({
-  origin: "https://home-services-frontend-theta.vercel.app/",
+  origin: "http://localhost:5173",
   credentials: true,
 }));
 app.use(express.json());
 
 // ✅ MongoDB Connection Fix
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect('mongodb://127.0.0.1:27017/Data', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('Connection error:', err));
- 
 
 // ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
@@ -38,7 +37,7 @@ const services = [
   { img: "/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
   { img: "/images/PopulerServices/cleaning-service.jpeg", alt: "Cleaning service", title: "Cleaning", description: "Professional cleaning services for your home." },
   { img: "/images/PopulerServices/Appliance Repair Services.jpg", alt: "Appliance repair service", title: "Appliance Repair", description: "Efficient appliance repair services." },
-  { img: "/images/PopulerServices/painting-service.jpg", alt: "Painting service", title: "Painting", description: "High-quality painting services for your home." }, 
+  { img: "/images/PopulerServices/painting-service.jpg", alt: "Painting service", title: "Painting", description: "High-quality painting services for your home." },
   { img: "/images/PopulerServices/carpentry-service.jpg", alt: "Carpentry service", title: "Carpentry", description: "Expert carpentry services for your home." },
   { img: "/images/PopulerServices/cctv-installation.jpeg", alt: "Home security service", title: "Home Security", description: "Professional home security solutions." },
   { img: "/images/PopulerServices/ac-repaire.jpg", alt: "AC repair service", title: "AC and HVAC", description: "Reliable AC and HVAC services." },
@@ -63,9 +62,4 @@ app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices))
 app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
 
 // ✅ Start Server
-app.listen(process.env.PORT, () => {
-  console.log(`✅ Server is running...`);
-  console.log(`➡️ Local: http://localhost:${process.env.PORT}`);
-  console.log(`🌐 Deployed: https://home-services-backend-9zi8.vercel.app/`);
-});
-
+app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));
