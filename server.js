@@ -25,6 +25,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/Data', {
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('Connection error:', err));
 
+
 // ✅ Authentication Routes
 app.use('/api/auth', authRoutes);
 
@@ -56,10 +57,12 @@ const mostBookedServices = [
   { img: "/images/most-booked images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
 ];
 
-// ✅ API Routes
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
 app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
+app.get("/", (req, res) => {
+  res.send("API is running 🚀");
+});
 
-// ✅ Start Server
+
 app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));
