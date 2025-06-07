@@ -29,25 +29,25 @@ app.use("/images", express.static(path.join(__dirname, "public/images")));
 // ✅ Sample Static Data
 const services = [
   { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
-  { img: "/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
-  { img: "/images/PopulerServices/cleaning-service.jpeg", alt: "Cleaning service", title: "Cleaning", description: "Professional cleaning services for your home." },
-  { img: "/images/PopulerServices/Appliance Repair Services.jpg", alt: "Appliance repair service", title: "Appliance Repair", description: "Efficient appliance repair services." },
-  { img: "/images/PopulerServices/painting-service.jpg", alt: "Painting service", title: "Painting", description: "High-quality painting services for your home." },
-  { img: "/images/PopulerServices/carpentry-service.jpg", alt: "Carpentry service", title: "Carpentry", description: "Expert carpentry services for your home." },
-  { img: "/images/PopulerServices/cctv-installation.jpeg", alt: "Home security service", title: "Home Security", description: "Professional home security solutions." },
-  { img: "/images/PopulerServices/ac-repaire.jpg", alt: "AC repair service", title: "AC and HVAC", description: "Reliable AC and HVAC services." },
-  { img: "/images/PopulerServices/gardering.jpg", alt: "Gardening service", title: "Gardening", description: "Professional gardening and landscaping services." }
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/cleaning-service.jpeg", alt: "Cleaning service", title: "Cleaning", description: "Professional cleaning services for your home." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/Appliance Repair Services.jpg", alt: "Appliance repair service", title: "Appliance Repair", description: "Efficient appliance repair services." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/painting-service.jpg", alt: "Painting service", title: "Painting", description: "High-quality painting services for your home." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/carpentry-service.jpg", alt: "Carpentry service", title: "Carpentry", description: "Expert carpentry services for your home." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/cctv-installation.jpeg", alt: "Home security service", title: "Home Security", description: "Professional home security solutions." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/ac-repaire.jpg", alt: "AC repair service", title: "AC and HVAC", description: "Reliable AC and HVAC services." },
+  { img: "https://home-services-backend-five.vercel.app/images/PopulerServices/gardering.jpg", alt: "Gardening service", title: "Gardening", description: "Professional gardening and landscaping services." }
 ];
 
 const mostBookedServices = [
-  { img: "/images/most-booked images/instence-bathroom-cleaner.webp", title: "Intense Bathroom Cleaning", rating: "4.5 (1.1M)", price: "₹499" },
-  { img: "/images/most-booked images/bathroom.png", title: "Classic Bathroom Cleaning", rating: "4.8 (1.4M)", price: "₹399" },
-  { img: "/images/most-booked images/fully-automatic-washing.webp", title: "Fully Automatic Washing Machine", rating: "4.2 (249K)", price: "₹149" },
-  { img: "/images/most-booked images/Sofa cleaning.webp", title: "Sofa Cleaning", rating: "4.1 (400K)", price: "₹499" },
-  { img: "/images/most-booked images/Haircut.webp", title: "Haircut for Men", rating: "4.5 (309K)", price: "₹249" },
-  { img: "/images/most-booked images/glow-facials.webp", title: "Instant Glow Facials", rating: "4.5 (149K)", price: "₹799" },
-  { img: "/images/most-booked images/Deluxe Peicure.webp", title: "Deluxe Pedicure", rating: "4.55 (258K)", price: "₹549" },
-  { img: "/images/most-booked images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/instence-bathroom-cleaner.webp", title: "Intense Bathroom Cleaning", rating: "4.5 (1.1M)", price: "₹499" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/bathroom.png", title: "Classic Bathroom Cleaning", rating: "4.8 (1.4M)", price: "₹399" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/fully-automatic-washing.webp", title: "Fully Automatic Washing Machine", rating: "4.2 (249K)", price: "₹149" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/Sofa cleaning.webp", title: "Sofa Cleaning", rating: "4.1 (400K)", price: "₹499" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/Haircut.webp", title: "Haircut for Men", rating: "4.5 (309K)", price: "₹249" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/glow-facials.webp", title: "Instant Glow Facials", rating: "4.5 (149K)", price: "₹799" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/Deluxe Peicure.webp", title: "Deluxe Pedicure", rating: "4.55 (258K)", price: "₹549" },
+  { img: "https://home-services-backend-five.vercel.app/images/most-booked-images/Elysian firming wine.webp", title: "Elysian Firming Wine Glow Facial", rating: "4.28 (126K)", price: "₹999" }
 ];
 
 // ✅ API Routes
