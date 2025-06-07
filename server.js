@@ -10,7 +10,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "https://home-services-frontend-fqon.vercel.app", // ✅ Remove trailing slash
+  origin: ["https://home-services-frontend-tau.vercel.app/", "http://localhost:5173"], // ✅ Remove trailing slash
   credentials: true,
 }));
 app.use(express.json());
