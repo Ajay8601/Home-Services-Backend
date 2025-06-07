@@ -3,35 +3,30 @@ const cors = require("cors");
 const path = require("path");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 const app = express();
 
-// Import Routes
-const authRoutes = require("./routes/authRoutes");
-
 // Middleware
 app.use(cors({
-  origin: "https://home-services-frontend-fqon.vercel.app/",
+  origin: "https://home-services-frontend-fqon.vercel.app", // ✅ Remove trailing slash
   credentials: true,
 }));
 app.use(express.json());
 
-// ✅ MongoDB Connection Fix
-mongoose.connect('mongodb://127.0.0.1:27017/Data', {
+// ✅ MongoDB Connection (Production-safe)
+mongoose.connect(process.env.MONGO_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('MongoDB connected'))
-.catch(err => console.error('Connection error:', err));
+.then(() => console.log("✅ MongoDB connected"))
+.catch(err => console.error("❌ MongoDB connection error:", err));
 
-// ✅ Authentication Routes
-app.use('/api/auth', authRoutes);
+// ✅ Serve Static Images from "public/images"
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
-// ✅ Serve Static Images
-app.use("/images", express.static(path.join(__dirname, "public/images"))); // Ensure 'public/images' exists
-
-// ✅ Services Data
+// ✅ Sample Static Data
 const services = [
   { img: "/images/PopulerServices/plumbing-service.jpg", alt: "Plumbing service", title: "Plumbing", description: "Expert plumbing services for all your needs." },
   { img: "/images/PopulerServices/electrician-service.avif", alt: "Electrical service", title: "Electrical", description: "Reliable electrical services for your home." },
@@ -44,7 +39,6 @@ const services = [
   { img: "/images/PopulerServices/gardering.jpg", alt: "Gardening service", title: "Gardening", description: "Professional gardening and landscaping services." }
 ];
 
-// ✅ Most Booked Services Data
 const mostBookedServices = [
   { img: "/images/most-booked images/instence-bathroom-cleaner.webp", title: "Intense Bathroom Cleaning", rating: "4.5 (1.1M)", price: "₹499" },
   { img: "/images/most-booked images/bathroom.png", title: "Classic Bathroom Cleaning", rating: "4.8 (1.4M)", price: "₹399" },
@@ -59,10 +53,20 @@ const mostBookedServices = [
 // ✅ API Routes
 app.get("/api/services", (req, res) => res.json(services));
 app.get("/api/most-booked-services", (req, res) => res.json(mostBookedServices));
-app.get("/api/serviceprovider", (req,res) => res.json(authRoutes));
+
+// ✅ Sample Route
 app.get("/", (req, res) => {
-  console.log("running on api");
-})
+  res.send("API running ✅");
+});
+
+// ✅ Mount Auth Routes
+const authRoutes = require("./routes/authRoutes");
+app.use("/api/auth", authRoutes);
+
+// ✅ Fix /api/serviceprovider route if needed
+// If authRoutes has a GET for /api/auth/serviceprovider, don't need this line
+app.get("/api/serviceprovider", (req, res) => res.json(authRoutes));
 
 // ✅ Start Server
-app.listen(process.env.PORT, () => console.log(`✅ Server running at http://localhost:${process.env.PORT}`));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`✅ Server running at http://localhost:${PORT}`));
